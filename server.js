@@ -2,6 +2,7 @@
 const express = require('express');
 const fs = require('fs-extra');
 const ejs = require('ejs');
+const bodyParser = require('body-parser');
 const { Model } = require('objection');
 const pageRouter = require('./src/routers/pageRouter.js');
 const apiRouter = require('./src/routers/apiRouter.js');
@@ -13,6 +14,9 @@ const app = express();
 const appDb = connectToDb(dbConfigObj.development);
 Model.knex(appDb);
 app.locals.db = appDb;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/', pageRouter);
 app.use('/api/v1', apiRouter);
