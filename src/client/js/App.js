@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Test from './components/Test';
+import Search from './components/Search';
 
 const DynamicRoute = (props) => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
@@ -24,7 +24,7 @@ class App extends React.Component {
       <Switch>
         <Route path='/ex/:routeVal' component={DynamicRoute}/>
         <Route path='/demo' component={DemoComponent}/>
-        <Route path='/test' component={Test}/>
+        <Route path='/' component={Search}/>
         <Route component={NoMatch404}/>
       </Switch>
     </div>

@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:server dev:webpack",
     "dev:webpack": "./node_modules/.bin/webpack --watch",
-    "dev:server": "NODE_ENV=development nodemon server.js --watch src --watch server.js --ignore src/client",
     "dev:server": "NODE_ENV=development node server.js server.js --watch src --watch server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +26,7 @@
     "passport-local": "1.0.0",
     "react": "16.1.0",
     "react-dom": "16.1.0",
+    "react-materialize": "^1.1.0",
     "react-router-dom": "4.2.0"
   },
   "devDependencies": {
