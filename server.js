@@ -40,7 +40,7 @@ passport.use(registerLocalStrategy());
 passport.serializeUser(configSerializeUser());
 passport.deserializeUser(configDeserializeUser());
 
-app.use('/', pageRouter);
+//app.use('/', pageRouter);
 app.use('/api/v1', apiRouter);
 app.use('/auth', authRouter);
 
@@ -51,9 +51,8 @@ app.set('views', `${__dirname}/src/views`);
 
 app.use(express.static(__dirname + '/public'));
 
-// error 404
 app.use((req, res) => {
-  res.render('404');
+  res.render('reactApp.ejs')
 });
 
 app.listen(PORT, () => {
