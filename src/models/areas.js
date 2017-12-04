@@ -5,10 +5,8 @@ class Areas extends Model {
     return 'areas';
   }
 
-  //----
   static get relationMappings () {
     const Employes = require('./Employes.js');
-
     return {
       Employes: {
         relation: Model.HasManyRelation,
@@ -20,7 +18,6 @@ class Areas extends Model {
       }
     };
   }
-  //----
 
 }
 
