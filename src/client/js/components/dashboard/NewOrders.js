@@ -38,8 +38,4 @@ const NewOrders = (props) => {
   );
 };
 
-NewOrders.propTypes = {
-  data: PropTypes.array
-};
-
 export default NewOrders;

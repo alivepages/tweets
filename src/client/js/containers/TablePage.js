@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentCreate from 'material-ui/svg-icons/content/create';
@@ -8,7 +8,7 @@ import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 import Data from '../data';
 
-const TablePage = () => {
+const TablePage = (props) => {
 
   const styles = {
     floatingActionButton: {
@@ -41,9 +41,11 @@ const TablePage = () => {
     }
   };
 
+  var nav = 'Inicio / ' + props.title;
+
   return (
-    <PageBase title="Table Page"
-              navigation="Inicio / Usuarios">
+    <PageBase title={props.title}
+              navigation={nav}>
 
       <div>
         <Link to="/form" >

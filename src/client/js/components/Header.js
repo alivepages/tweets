@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -20,7 +20,8 @@ class Header extends React.Component {
         position: 'fixed',
         top: 0,
         overflow: 'hidden',
-        maxHeight: 57
+        maxHeight: 57,
+        paddingLeft: styles.paddingLeft
       },
       menuButton: {
         marginLeft: 10
@@ -33,7 +34,7 @@ class Header extends React.Component {
     return (
         <div>
             <AppBar
-              style={{...styles, ...style.appBar}}
+              style={style.appBar}
               title={
                 <SearchBox />
               }
@@ -72,9 +73,5 @@ class Header extends React.Component {
   }
 }
 
-Header.propTypes = {
-  styles: PropTypes.object,
-  handleChangeRequestNavDrawer: PropTypes.func
-};
 
 export default Header;

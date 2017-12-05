@@ -5,8 +5,9 @@ import LeftDrawer from '../components/LeftDrawer';
 import withWidth, {LARGE, SMALL} from 'material-ui/utils/withWidth';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
+import FormPage from './FormPage';
 
-class App extends React.Component {
+class Visit extends React.Component {
 
   constructor(props) {
     super(props);
@@ -51,8 +52,9 @@ class App extends React.Component {
                         menus={Data.menus}
                         username="Admin"/>
 
+
             <div style={styles.container}>
-              {this.props.children}
+              <FormPage title="Visitante"/>
             </div>
         </div>
       </MuiThemeProvider>
@@ -60,9 +62,4 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  children: PropTypes.element,
-  width: PropTypes.number
-};
-
-export default withWidth()(App);
+export default withWidth()(Visit);

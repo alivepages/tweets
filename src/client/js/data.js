@@ -10,10 +10,10 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
   menus: [
-    { text: 'Estadísticas', icon: <Assessment/>, link: '/dashboard' },
-    { text: 'Visitantes', icon: <Web/>, link: '/form' },
-    { text: 'Usuarios', icon: <GridOn/>, link: '/table' },
-    { text: 'Acceso', icon: <PermIdentity/>, link: '/login' }
+    { text: 'Estadísticas', icon: <Assessment/>, link: '/stats' },
+    { text: 'Visitantes', icon: <Web/>, link: '/visits' },
+    { text: 'Usuarios', icon: <GridOn/>, link: '/users' },
+    { text: 'Salir', icon: <PermIdentity/>, link: '/login' }
   ],
   tablePage: {
     items: [

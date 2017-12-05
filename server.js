@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser');
 const registerLocalStrategy = require('./src/middleware/passport-local--registerLocalStrategy.js');
 const { configDeserializeUser, configSerializeUser } = require('./src/helpers/passport-local--sessionActions.js');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 const app = express();
 const appDb = connectToDb(dbConfigObj.development);
 Model.knex(appDb);

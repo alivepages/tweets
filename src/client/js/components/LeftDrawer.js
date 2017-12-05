@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import {spacing, typography} from 'material-ui/styles';
 import {white, blue600} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import Avatar from 'material-ui/Avatar';
 
 const LeftDrawer = (props) => {
@@ -27,7 +27,7 @@ const LeftDrawer = (props) => {
     avatar: {
       div: {
         padding: '15px 0 20px 15px',
-        backgroundImage:  'url(' + require('../images/material_bg.png') + ')',
+        backgroundImage:  "url('images/material_bg.png')",
         height: 45
       },
       icon: {
@@ -74,10 +74,6 @@ const LeftDrawer = (props) => {
   );
 };
 
-LeftDrawer.propTypes = {
-  navDrawerOpen: PropTypes.bool,
-  menus: PropTypes.array,
-  username: PropTypes.string,
-};
+
 
 export default LeftDrawer;

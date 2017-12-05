@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Search from './components/Search';
 import LoginPage from './containers/LoginPage';
+import Visits from './containers/Visits';
+import Visit from './containers/Visit';
+import Users from './containers/Users';
+import User from './containers/User';
+import Stats from './containers/Stats';
 
 const DynamicRoute = (props) => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
@@ -23,10 +27,12 @@ class App extends React.Component {
   render (){
     return <div>
       <Switch>
-        <Route path='/ex/:routeVal' component={DynamicRoute}/>
-        <Route path='/demo' component={DemoComponent}/>
-        <Route path='/test' component={Search}/>
-        <Route path='/' component={LoginPage}/>
+        <Route path='/visits' component={Visits}/>
+        <Route path='/visit/:id' component={Visit}/>
+        <Route path='/users' component={Users}/>
+        <Route path='/user/:id' component={User}/>
+        <Route path='/stats' component={Stats}/>
+        <Route path='/' component={Stats}/>
         <Route component={NoMatch404}/>
       </Switch>
     </div>

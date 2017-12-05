@@ -24,10 +24,5 @@ const PageBase = (props) => {
     );
 };
 
-PageBase.propTypes = {
-  title: PropTypes.string,
-  navigation: PropTypes.string,
-  children: PropTypes.element
-};
 
 export default PageBase;

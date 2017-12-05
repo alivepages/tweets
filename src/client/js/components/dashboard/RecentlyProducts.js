@@ -58,8 +58,4 @@ const RecentlyProducts = (props) => {
   );
 };
 
-RecentlyProducts.propTypes = {
-  data: PropTypes.array
-};
-
 export default RecentlyProducts;
