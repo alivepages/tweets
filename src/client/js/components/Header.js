@@ -13,8 +13,7 @@ import SearchBox from './SearchBox';
 class Header extends React.Component {
 
   render() {
-    const {styles, handleChangeRequestNavDrawer} = this.props;
-
+    const {styles, handleChangeRequestNavDrawer, handleSearch} = this.props;
     const style = {
       appBar: {
         position: 'fixed',
@@ -36,7 +35,7 @@ class Header extends React.Component {
             <AppBar
               style={style.appBar}
               title={
-                <SearchBox />
+                <SearchBox handleSearch={handleSearch}/>
               }
               iconElementLeft={
                   <IconButton style={style.menuButton} onClick={handleChangeRequestNavDrawer}>

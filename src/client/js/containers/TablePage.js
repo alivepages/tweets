@@ -6,7 +6,6 @@ import ContentCreate from 'material-ui/svg-icons/content/create';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
-import Data from '../data';
 
 const TablePage = (props) => {
 
@@ -42,13 +41,13 @@ const TablePage = (props) => {
   };
 
   var nav = 'Inicio / ' + props.title;
-
+  
   return (
     <PageBase title={props.title}
               navigation={nav}>
 
       <div>
-        <Link to="/form" >
+        <Link to="/visit/0" >
           <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
             <ContentAdd />
           </FloatingActionButton>
@@ -58,21 +57,27 @@ const TablePage = (props) => {
           <TableHeader>
             <TableRow>
               <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.name}>Name</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.price}>Price</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.category}>Category</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.edit}>Edit</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.name}>Nombre</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.price}>Empresa</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.category}>Identficación</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.edit}></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {Data.tablePage.items.map(item =>
+            {props.guests
+              .filter(item => {
+                var name = item.name.toLowerCase();
+                var key = props.searchKey.toLowerCase();
+                return (key == '' || name.indexOf(key) >= 0)
+              })
+              .map(item =>
               <TableRow key={item.id}>
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
                 <TableRowColumn style={styles.columns.name}>{item.name}</TableRowColumn>
-                <TableRowColumn style={styles.columns.price}>{item.price}</TableRowColumn>
-                <TableRowColumn style={styles.columns.category}>{item.category}</TableRowColumn>
+                <TableRowColumn style={styles.columns.price}>{item.company}</TableRowColumn>
+                <TableRowColumn style={styles.columns.category}>{item.identifyNumber}</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
-                  <Link className="button" to="/form">
+                  <Link className="button" to="/visit/0">
                     <FloatingActionButton zDepth={0}
                                           mini={true}
                                           backgroundColor={grey200}

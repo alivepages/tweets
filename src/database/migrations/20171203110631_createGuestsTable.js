@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
       table.string('identifyNumber');
       table.string('identifyType');
       table.string('pictureFile');
+      table.boolean('inside');
       table.timestamps();
   });
 };

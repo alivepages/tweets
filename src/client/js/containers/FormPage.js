@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
@@ -9,8 +9,64 @@ import DatePicker from 'material-ui/DatePicker';
 import {grey400} from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
 import PageBase from '../components/PageBase';
+import request from 'superagent';
 
-const FormPage = () => {
+//const FormPage = () => {
+export default class FormPage extends Component {
+
+  constructor(props) {
+      super(props);
+      this._handleSubmit = this._handleSubmit.bind(this);
+      this.registerGuest = this.registerGuest.bind(this);
+  }
+
+
+  _handleSubmit(event) {
+    event.preventDefault();
+    var data = {
+      'guests' : {},
+      'visits' : {}
+    };
+    for (var field in this.refs){
+      var names = field.split('_');
+      var tableName = names[0];
+      var fieldName = names[1];
+      data[tableName][fieldName] = this.refs[field].input.value
+    }
+    this.registerGuest(data);
+  }
+
+  registerGuest(data) {
+    var self = this;
+    request
+      .post('/api/v1/guests')
+      .send(data['guests'])
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        if (err || !res.ok) {
+          alert('Error al registrar visitante');
+        } else {
+          data['visits']['guestId'] = res.body.id;
+          self.registerVisit(data);
+        }
+    });
+  }
+
+  registerVisit(data) {
+    request
+      .post('/api/v1/visits')
+      .send(data['visits'])
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        if (err || !res.ok) {
+          alert('Error al registrar visitante');
+        } else {
+          alert('Se registró un nuevo visitante ');
+        }
+      });
+  }
+
+  render() {
 
   const styles = {
     toggleDiv: {
@@ -30,47 +86,62 @@ const FormPage = () => {
       marginLeft: 5
     }
   };
-
+  var value = localStorage.getItem('currentKey');
+  var selec = '';
+  if (this.state) {
+    selec = this.state.value;
+  }
   return (
-    <PageBase title="Form Page"
+    <PageBase title="Nuevo visitante"
               navigation="Inicio / Visitantes">
-      <form>
+      <form onSubmit={this._handleSubmit}>
 
         <TextField
-          hintText="Name"
-          floatingLabelText="Name"
+          hintText="Nombre"
+          floatingLabelText="Nombre"
           fullWidth={true}
+          defaultValue={value}
+          ref="guests_name"
         />
 
-        <SelectField
-          floatingLabelText="City"
-          value=""
-          fullWidth={true}>
-          <MenuItem key={0} primaryText="London"/>
-          <MenuItem key={1} primaryText="Paris"/>
-          <MenuItem key={2} primaryText="Rome"/>
-        </SelectField>
+        <TextField
+          hintText="Empresa"
+          floatingLabelText="Empresa"
+          fullWidth={true}
+          ref="guests_company"
+        />
 
-        <DatePicker
-          hintText="Expiration Date"
-          floatingLabelText="Expiration Date"
-          fullWidth={true}/>
 
-        <div style={styles.toggleDiv}>
-          <Toggle
-            label="Disabled"
-            labelStyle={styles.toggleLabel}
-          />
-        </div>
+
+        <TextField
+          hintText="A quien visita"
+          floatingLabelText="A quien visita"
+          fullWidth={true}
+          ref="visits_employe"
+        />
+
+        <TextField
+          hintText="Motivo"
+          floatingLabelText="Motivo"
+          fullWidth={true}
+          ref="visits_reazon"
+        />
+
+        <TextField
+          hintText="Identificación"
+          floatingLabelText="Identificación"
+          fullWidth={true}
+          ref="guests_identifyNumber"
+        />
 
         <Divider/>
 
         <div style={styles.buttons}>
           <Link to="/">
-            <RaisedButton label="Cancel"/>
+            <RaisedButton label="Cancelar"/>
           </Link>
 
-          <RaisedButton label="Save"
+          <RaisedButton label="Guardar"
                         style={styles.saveButton}
                         type="submit"
                         primary={true}/>
@@ -78,6 +149,5 @@ const FormPage = () => {
       </form>
     </PageBase>
   );
+ }
 };
-
-export default FormPage;

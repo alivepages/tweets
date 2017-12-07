@@ -40,7 +40,7 @@ const BrowserUsage = (props) => {
                   data={props.data}
                   fill="#8884d8">
                   {
-                    props.data.map((item) => <Cell key={item.name} fill={item.color}/>)
+                    props.data.map((item) => <Cell dataKey={item.name} key={item.name} fill={item.color}/>)
                   }
                 </Pie>
               </PieChart>
