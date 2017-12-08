@@ -46,3 +46,8 @@ a:hover {
 .clear {
   clear: 'both'
 }
+
+.screenshot {
+  width: 400px;
+  text-align: center;
+}

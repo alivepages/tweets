@@ -9,19 +9,15 @@ import DatePicker from 'material-ui/DatePicker';
 import {grey400} from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
 import PageBase from '../components/PageBase';
-import request from 'superagent';
 import Webcam from '../components/Webcam';
+import request from 'superagent';
 
 export default class FormPage extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {
-        screenshot: null
-      };
       this._handleSubmit = this._handleSubmit.bind(this);
       this.registerGuest = this.registerGuest.bind(this);
-      this._handleCapture = this._handleCapture.bind(this);
   }
 
 
@@ -35,20 +31,13 @@ export default class FormPage extends Component {
       var names = field.split('_');
       var tableName = names[0];
       var fieldName = names[1];
-      var value = '';
-      if (field === 'guests_pictureFile') {
-        value = this.refs[field].value;
-      } else {
-        value = this.refs[field].input.value;
-      }
-      data[tableName][fieldName] = value;
+      data[tableName][fieldName] = this.refs[field].input.value
     }
     this.registerGuest(data);
   }
 
   registerGuest(data) {
     var self = this;
-    console.log(data);
     request
       .post('/api/v1/guests')
       .send(data['guests'])
@@ -77,10 +66,6 @@ export default class FormPage extends Component {
       });
   }
 
-  _handleCapture(screenshot){
-    this.setState({ screenshot });
-  }
-
   render() {
 
   const styles = {
@@ -95,8 +80,7 @@ export default class FormPage extends Component {
     },
     buttons: {
       marginTop: 30,
-      marginLeft: 'auto',
-      marginRight: 'auto'
+      float: 'right'
     },
     saveButton: {
       marginLeft: 5
@@ -111,57 +95,51 @@ export default class FormPage extends Component {
     <PageBase title="Nuevo visitante"
               navigation="Inicio / Visitantes">
       <form onSubmit={this._handleSubmit}>
-      <div className="row">
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15 ">
 
-          <TextField
-            hintText="Nombre"
-            floatingLabelText="Nombre"
-            fullWidth={true}
-            defaultValue={value}
-            ref="guests_name"
-          />
+      <Webcam/>
 
-          <TextField
-            hintText="Empresa"
-            floatingLabelText="Empresa"
-            fullWidth={true}
-            ref="guests_company"
-          />
+        <TextField
+          hintText="Nombre"
+          floatingLabelText="Nombre"
+          fullWidth={true}
+          defaultValue={value}
+          ref="guests_name"
+        />
 
-          <TextField
-            hintText="A quien visita"
-            floatingLabelText="A quien visita"
-            fullWidth={true}
-            ref="visits_employe"
-          />
+        <TextField
+          hintText="Empresa"
+          floatingLabelText="Empresa"
+          fullWidth={true}
+          ref="guests_company"
+        />
 
-          <TextField
-            hintText="Motivo"
-            floatingLabelText="Motivo"
-            fullWidth={true}
-            ref="visits_reazon"
-          />
 
-          <TextField
-            hintText="Identificación"
-            floatingLabelText="Identificación"
-            fullWidth={true}
-            ref="guests_identifyNumber"
-          />
 
-      </div>
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15 ">
-          <Webcam width="400" height="300" handleCapture={this._handleCapture}/>
-          <input type="hidden" value={this.state.screenshot} ref="guests_pictureFile"/>
-      </div>
-      </div>
-      <div className="row">
+        <TextField
+          hintText="A quien visita"
+          floatingLabelText="A quien visita"
+          fullWidth={true}
+          ref="visits_employe"
+        />
+
+        <TextField
+          hintText="Motivo"
+          floatingLabelText="Motivo"
+          fullWidth={true}
+          ref="visits_reazon"
+        />
+
+        <TextField
+          hintText="Identificación"
+          floatingLabelText="Identificación"
+          fullWidth={true}
+          ref="guests_identifyNumber"
+        />
 
         <Divider/>
 
         <div style={styles.buttons}>
-          <Link to="/visits">
+          <Link to="/">
             <RaisedButton label="Cancelar"/>
           </Link>
 
@@ -170,7 +148,6 @@ export default class FormPage extends Component {
                         type="submit"
                         primary={true}/>
         </div>
-      </div>
       </form>
     </PageBase>
   );

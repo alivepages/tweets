@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
       table.string('company');
       table.string('identifyNumber');
       table.string('identifyType');
-      table.string('pictureFile');
+      table.text('pictureFile');
       table.boolean('inside');
       table.timestamps();
   });
