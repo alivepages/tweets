@@ -12,6 +12,7 @@ import PageBase from '../components/PageBase';
 import request from 'superagent';
 import Webcam from '../components/Webcam';
 
+
 export default class FormPage extends Component {
 
   constructor(props) {
@@ -22,6 +23,7 @@ export default class FormPage extends Component {
       this._handleSubmit = this._handleSubmit.bind(this);
       this.registerGuest = this.registerGuest.bind(this);
       this._handleCapture = this._handleCapture.bind(this);
+      //this.saveFile = this.saveFile.bind(this);
   }
 
 
@@ -31,24 +33,38 @@ export default class FormPage extends Component {
       'guests' : {},
       'visits' : {}
     };
+    var file = this.refs['file'].value;
+    if (file) {
+      //data['guests']['pictureFile'] = this.saveFile(file);
+    }
     for (var field in this.refs){
-      var names = field.split('_');
-      var tableName = names[0];
-      var fieldName = names[1];
-      var value = '';
-      if (field === 'guests_pictureFile') {
-        value = this.refs[field].value;
-      } else {
-        value = this.refs[field].input.value;
+      if (field !== 'file') {
+        var names = field.split('_');
+        var tableName = names[0];
+        var fieldName = names[1];
+        var value = this.refs[field].input.value;
+        //console.log(tableName, fieldName, value);
+        data[tableName][fieldName] = value;
       }
-      data[tableName][fieldName] = value;
     }
     this.registerGuest(data);
   }
 
+  // saveFile(img) {
+  //   const fs = require('fs-extra');
+  //   const randomString = require('random-string');
+  //   // strip off the data: url prefix to get just the base64-encoded bytes
+  //   var data = img.replace(/^data:image\/\w+;base64,/, "");
+  //   var buf = new Buffer(data, 'base64');
+  //
+  //   var fileName = randomString({length: 20}) + '.png';
+  //   fs.writeFile(fileName, buf);
+  //   return fileName;
+  // }
+
   registerGuest(data) {
     var self = this;
-    console.log(data);
+    //console.log(data);
     request
       .post('/api/v1/guests')
       .send(data['guests'])
@@ -153,7 +169,7 @@ export default class FormPage extends Component {
       </div>
       <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15 ">
           <Webcam width="400" height="300" handleCapture={this._handleCapture}/>
-          <input type="hidden" value={this.state.screenshot} ref="guests_pictureFile"/>
+          <input type="hidden" value={this.state.screenshot} ref="file"/>
       </div>
       </div>
       <div className="row">

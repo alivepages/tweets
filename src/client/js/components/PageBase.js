@@ -8,10 +8,10 @@ const PageBase = (props) => {
     const {title, navigation} = props;
 
     return (
-      <div>
+      <div className="backg">
         <span style={globalStyles.navigation}>{navigation}</span>
 
-        <Paper style={globalStyles.paper}>
+        <Paper style={globalStyles.paper} className="backg">
           <h3 style={globalStyles.title}>{title}</h3>
 
           <Divider/>

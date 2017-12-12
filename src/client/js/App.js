@@ -7,6 +7,8 @@ import Visit from './containers/Visit';
 import Users from './containers/Users';
 import User from './containers/User';
 import Stats from './containers/Stats';
+import All from './containers/All';
+import Actives from './containers/Actives';
 
 const DynamicRoute = (props) => {
   const styleObj = {padding: '3rem', fontSize: '6vw', color: '#0E6655'}
@@ -27,8 +29,11 @@ class App extends React.Component {
   render (){
     return <div>
       <Switch>
+        <Route path='/login' component={LoginPage}/>
         <Route path='/visits' component={Visits}/>
         <Route path='/visit/:id' component={Visit}/>
+        <Route path='/all' component={All}/>
+        <Route path='/actives' component={Actives}/>
         <Route path='/users' component={Users}/>
         <Route path='/user/:id' component={User}/>
         <Route path='/stats' component={Stats}/>

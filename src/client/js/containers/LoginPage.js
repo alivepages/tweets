@@ -45,7 +45,7 @@ const LoginPage = () => {
         color: grey500
       },
       iconStyle: {
-        color: grey500,
+        color: 'red',
         borderColor: grey500,
         fill: grey500
       }

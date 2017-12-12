@@ -7,7 +7,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 
-const TablePage = (props) => {
+const TableAll = (props) => {
 
   const styles = {
     floatingActionButton: {
@@ -58,10 +58,11 @@ const TablePage = (props) => {
         </Link>
 
         <Table>
-          <TableHeader style={{backgroundColor:'rgb(30, 136, 229)'}}>
-            <TableRow style={{'fontSize':'18px'}}>
+          <TableHeader  style={{backgroundColor:'rgb(30, 136, 229)'}}>
+            <TableRow>
               <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.name}>Nombre</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.name}>Hora de entrada</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.price}>Empresa</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.category}>Identficación</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.edit}></TableHeaderColumn>
@@ -69,15 +70,34 @@ const TablePage = (props) => {
           </TableHeader>
           <TableBody>
             {props.guests
-              .filter(item => {
+              .filter((item, index) => {
+                var horas = [
+                  '10/12/2017 17:34 ',
+                  '9/12/2017 15:11 ',
+                  '9/12/2017 13:24 ',
+                  '9/12/2017 10:15 ',
+                  '9/12/2017 9:05 ',
+                  '9/12/2017 9:04 ',
+                  '8/12/2017 17:35 ',
+                  '8/12/2017 17:30 ',
+                  '8/12/2017 16:00 ',
+                  '','','','','','','','','','','',''
+                ]
+              if (index == 0) {
+                var fecha= new Date()
+                item.hora = '10/12/2017 ' + fecha.getHours() + ':' + fecha.getMinutes();
+              } else {
+                item.hora = horas[index];
+              }
                 var name = item.name.toLowerCase();
                 var key = props.searchKey.toLowerCase();
                 return (key == '' || name.indexOf(key) >= 0)
               })
-              .map(item =>
+              .map((item, index) =>
               <TableRow key={item.id}>
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
                 <TableRowColumn style={styles.columns.name}>{item.name}</TableRowColumn>
+                <TableRowColumn style={styles.columns.name}>{item.hora}</TableRowColumn>
                 <TableRowColumn style={styles.columns.price}>{item.company}</TableRowColumn>
                 <TableRowColumn style={styles.columns.category}>{item.identifyNumber}</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
@@ -99,4 +119,4 @@ const TablePage = (props) => {
   );
 };
 
-export default TablePage;
+export default TableAll;

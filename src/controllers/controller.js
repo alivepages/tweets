@@ -3,6 +3,7 @@ class Controller {
   static getAll (Model, req, res) {
     Model
       .query()
+      .orderBy('id','DESC')
       .then(data => res.json(data));
   }
 
