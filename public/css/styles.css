@@ -9,6 +9,10 @@ body, h1, h2, h3, h4, h5, h6 {
   line-height: 24px;
 }
 
+.backg .backg {
+  background-color: #949090 !important;
+}
+
 body {
   margin: 0;
   background-color: #efefef;
