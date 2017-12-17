@@ -9,10 +9,6 @@ body, h1, h2, h3, h4, h5, h6 {
   line-height: 24px;
 }
 
-.backg .backg {
-  background-color: #949090 !important;
-}
-
 body {
   margin: 0;
   background-color: #efefef;
@@ -54,4 +50,10 @@ a:hover {
 .screenshot {
   width: 400px;
   text-align: center;
+}
+
+.profile {
+  width: 100%;
+  border-radius: 56%;
+  margin-top: 8px;
 }

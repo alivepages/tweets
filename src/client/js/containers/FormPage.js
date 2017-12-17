@@ -35,7 +35,7 @@ export default class FormPage extends Component {
     };
     var file = this.refs['file'].value;
     if (file) {
-      //data['guests']['pictureFile'] = this.saveFile(file);
+      data['guests']['pictureFile'] = file;
     }
     for (var field in this.refs){
       if (field !== 'file') {
@@ -127,7 +127,7 @@ export default class FormPage extends Component {
     <PageBase title="Nuevo visitante"
               navigation="Inicio / Visitantes">
       <form onSubmit={this._handleSubmit}>
-      <div className="row" style={{backgroundColor:'red'}}>
+      <div className="row">
       <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15 ">
 
           <TextField
@@ -156,7 +156,7 @@ export default class FormPage extends Component {
             hintText="Motivo"
             floatingLabelText="Motivo"
             fullWidth={true}
-            ref="visits_reazon"
+            ref="visits_reason"
           />
 
           <TextField

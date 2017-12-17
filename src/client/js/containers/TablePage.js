@@ -58,7 +58,7 @@ const TablePage = (props) => {
         </Link>
 
         <Table>
-          <TableHeader style={{backgroundColor:'rgb(30, 136, 229)'}}>
+          <TableHeader>
             <TableRow style={{'fontSize':'18px'}}>
               <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.name}>Nombre</TableHeaderColumn>

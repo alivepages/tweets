@@ -23,7 +23,7 @@ class All extends React.Component {
       guests: [],
       loading: true
     })
-    var URL = 'api/v1/guests';
+    var URL = 'api/v1/visits';
     request
       .get(URL)
       .then(data => {
@@ -74,7 +74,6 @@ class All extends React.Component {
       <MuiThemeProvider muiTheme={ThemeDefault}>
         <div>
           <Header styles={styles.header}
-                  handleSearch={this.handleSearch.bind(this)}
                   handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)}/>
 
             <LeftDrawer navDrawerOpen={navDrawerOpen}
@@ -82,7 +81,7 @@ class All extends React.Component {
                         username="Admin"/>
 
             <div style={styles.container}>
-              <TableAll title="Ultimas Visitas" guests={guests} searchKey={this.state.searchKey}/>
+              <TableAll title="Últimas Visitas" guests={guests} searchKey={this.state.searchKey}/>
             </div>
         </div>
       </MuiThemeProvider>

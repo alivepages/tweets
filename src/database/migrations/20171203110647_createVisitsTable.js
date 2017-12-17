@@ -30,7 +30,7 @@ exports.up = function(knex, Promise) {
         .index()
         .references('id')
         .inTable('reasons');
-      table.timestamps();
+      table.timestamps(true, true);
   });
 };
 
