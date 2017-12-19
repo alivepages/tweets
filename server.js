@@ -15,9 +15,21 @@ const cookieParser = require('cookie-parser');
 const registerLocalStrategy = require('./src/middleware/passport-local--registerLocalStrategy.js');
 const { configDeserializeUser, configSerializeUser } = require('./src/helpers/passport-local--sessionActions.js');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
-const appDb = connectToDb(dbConfigObj.development);
+//const appDb = connectToDb(dbConfigObj.development);
+
+let dbConnectionConfig
+
+if( process.env.NODE_ENV === 'production' ){
+  dbConnectionConfig = dbConfigObj.production
+} else {
+  dbConnectionConfig = dbConfigObj.development
+}
+
+const appDb = connectToDb(dbConnectionConfig)
+
+
 Model.knex(appDb);
 app.locals.db = appDb;
 
