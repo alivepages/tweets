@@ -5,7 +5,9 @@ const dataRows = [
     guestId: 1,
     areaId: 1,
     reasonId: 1,
-    employeId: 1
+    employeId: 1,
+    reason: 'Entrevista',
+    employe: 'Paula'
   }
 ];
 

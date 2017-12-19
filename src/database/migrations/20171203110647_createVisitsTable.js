@@ -31,6 +31,8 @@ exports.up = function(knex, Promise) {
         .references('id')
         .inTable('reasons');
       table.timestamps(true, true);
+      table.string('employe');
+      table.string('reason');
   });
 };
 

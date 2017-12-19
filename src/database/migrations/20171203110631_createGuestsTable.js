@@ -8,9 +8,9 @@ exports.up = function(knex, Promise) {
       table.string('company');
       table.string('identifyNumber');
       table.string('identifyType');
-      table.text('pictureFile');
+      table.text('pictureFile', 'longtext');
       table.boolean('inside');
-      table.timestamps();
+      table.timestamps(true, true);
   });
 };
 
