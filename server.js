@@ -24,7 +24,7 @@ app.locals.db = appDb;
 app.use(bodyParser.json({limit: 1000000, parameterLimit: 1000000}));
 app.use(bodyParser.urlencoded({
     extended: false,
-    parameterLimit: 1000000 // experiment with this parameter and tweak
+    parameterLimit: 1000000
 }));
 
 app.use(cookieParser());
@@ -51,8 +51,6 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/src/views`);
 
 app.use(express.static(__dirname + '/public'));
-//app.use(express.json({limit: '90000000'}));
-//app.use(express.urlencoded({limit: '50mb'}));
 
 app.use((req, res) => {
   res.render('reactApp.ejs')

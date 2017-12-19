@@ -48,7 +48,6 @@ const RecentlyProducts = (props) => {
               leftAvatar={<Avatar icon={<Wallpaper />} />}
               primaryText={item.title}
               secondaryText={item.text}
-              rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />
           </div>

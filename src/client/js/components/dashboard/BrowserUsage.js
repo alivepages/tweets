@@ -35,8 +35,8 @@ const BrowserUsage = (props) => {
             <ResponsiveContainer>
               <PieChart >
                 <Pie
-                  innerRadius={10}
-                  outerRadius={50}
+                  innerRadius={30}
+                  outerRadius={100}
                   data={props.data}
                   fill="#8884d8">
                   {

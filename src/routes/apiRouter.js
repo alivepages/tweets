@@ -5,6 +5,7 @@ const employesController = require('../controllers/employesController.js');
 const guestsController = require('../controllers/guestsController.js');
 const reasonsController = require('../controllers/reasonsController.js');
 const visitsController = require('../controllers/visitsController.js');
+const statsController = require('../controllers/statsController.js');
 
 apiRouter
   .get('/areas', areasController.getAll)
@@ -40,5 +41,8 @@ apiRouter
   .post('/visits', visitsController.create)
   .put('/visits/:id', visitsController.update)
   .delete('/visits/:id', visitsController.deleteById);
+
+  apiRouter
+    .get('/stats', statsController.stats);
 
 module.exports = apiRouter;
