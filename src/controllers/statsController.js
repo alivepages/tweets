@@ -18,7 +18,7 @@ class statsController {
   static byHour () {
     return Visits
       .query()
-      .select(raw('hour(entryTime) as hour'))
+      .select(raw('hour("entryTime") as hour'))
       .count('id as count')
       .groupBy('hour')
       .then(data => {
@@ -41,7 +41,7 @@ class statsController {
   static byMonth () {
     return Visits
       .query()
-      .select(raw('month(entryTime) as month'))
+      .select(raw('month("entryTime") as month'))
       .count('id as count')
       .groupBy('month')
       .then(data => {
