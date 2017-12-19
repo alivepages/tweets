@@ -73,7 +73,7 @@ class statsController {
       .select('areas.area')
       .count('visits.id as count')
       .join('areas', 'visits.areaId', 'areas.id')
-      .groupBy('visits.areaId')
+      .groupBy('areas.area')
       .then(data => {
         var result = [];
         for (var i = 0; i < data.length; i++) {
