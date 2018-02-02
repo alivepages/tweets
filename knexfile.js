@@ -18,7 +18,7 @@ const devConfig = {
 const prodConfig = Object.assign(
   {},
   devConfig,
-  { client: 'pg', connection: process.env.DATABASE_URL}
+  { host: 'localhost', database: 'floreria_visitas', user: 'floreria_visitas', password: 'Visitas+32', }
 )
 
 module.exports = {
