@@ -1,4 +1,4 @@
-
+var cool = require('cool-ascii-faces');
 const express = require('express');
 const fs = require('fs-extra');
 const ejs = require('ejs');
