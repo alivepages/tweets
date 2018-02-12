@@ -1,7 +1,7 @@
 const devConfig = {
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
+    host: '192.237.240.116',
     port: '3306',
     user: 'junior',
     password: 'muktek',
