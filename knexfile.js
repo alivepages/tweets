@@ -18,10 +18,10 @@ const devConfig = {
 const prodConfig = Object.assign(
   {},
   devConfig,
-  { host: 'localhost', database: 'floreria_visitas', user: 'floreria_visitas', password: 'Visitas+32', }
+  { host: '192.237.240.116', database: 'floreria_visitas', user: 'floreria_visitas', password: 'Visitas+32', }
 )
 
 module.exports = {
-  development: devConfig,
+  development: prodConfig,
   production: prodConfig
 }
