@@ -3,10 +3,17 @@ const devConfig = {
   connection: {
     host: '192.237.240.116',
     port: '3306',
-    user: 'junior',
-    password: 'muktek',
-    database: 'guests'
+    user: 'floreria_visitas',
+    password: 'Visitas+3',
+    database: 'floreria_visitas'
   },
+  // connection: {
+  //   host: '192.237.240.116',
+  //   port: '3306',
+  //   user: 'junior',
+  //   password: 'muktek',
+  //   database: 'guests'
+  // },
   migrations: {
     directory: './src/database/migrations'
   },
