@@ -1,19 +1,12 @@
 const devConfig = {
   client: 'mysql',
   connection: {
-    host: '192.237.240.116',
+    host: 'localhost',
     port: '3306',
-    user: 'floreria_visitas',
-    password: 'Visitas+3',
-    database: 'floreria_visitas'
+    user: 'junior',
+    password: 'muktek',
+    database: 'guests'
   },
-  // connection: {
-  //   host: '192.237.240.116',
-  //   port: '3306',
-  //   user: 'junior',
-  //   password: 'muktek',
-  //   database: 'guests'
-  // },
   migrations: {
     directory: './src/database/migrations'
   },
@@ -29,6 +22,6 @@ const prodConfig = Object.assign(
 )
 
 module.exports = {
-  development: prodConfig,
+  development: devConfig,
   production: prodConfig
 }
