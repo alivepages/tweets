@@ -6,14 +6,8 @@ const bodyParser = require('body-parser');
 const { Model } = require('objection');
 const pageRouter = require('./src/routes/pageRouter.js');
 const apiRouter = require('./src/routes/apiRouter.js');
-const authRouter = require('./src/routes/authRouter.js');
 const connectToDb = require('./src/database/dbConnect.js');
 const dbConfigObj = require('./knexfile.js');
-const passport = require('passport');
-const cookieSession = require('cookie-session');
-const cookieParser = require('cookie-parser');
-const registerLocalStrategy = require('./src/middleware/passport-local--registerLocalStrategy.js');
-const { configDeserializeUser, configSerializeUser } = require('./src/helpers/passport-local--sessionActions.js');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -39,23 +33,8 @@ app.use(bodyParser.urlencoded({
     parameterLimit: 1000000
 }));
 
-app.use(cookieParser());
-app.use(cookieSession({
-  name: 'cookiemonster',
-  secret: 'superdupersupersecret',
-  httpOnly: true,
-  signed: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(registerLocalStrategy());
-passport.serializeUser(configSerializeUser());
-passport.deserializeUser(configDeserializeUser());
-
 //app.use('/', pageRouter);
 app.use('/api/v1', apiRouter);
-app.use('/auth', authRouter);
 
 // Configure EJS templatte engine
 app.engine('ejs', ejs.renderFile);
