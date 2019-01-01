@@ -1,11 +1,11 @@
 const devConfig = {
   client: 'mysql',
   connection: {
-    host: 'localhost',
+    host: '192.168.10.10',
     port: '3306',
-    user: 'junior',
-    password: 'muktek',
-    database: 'guests'
+    user: 'homestead',
+    password: 'secret',
+    database: 'gc'
   },
   migrations: {
     directory: './src/database/migrations'
