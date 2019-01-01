@@ -9,9 +9,9 @@ class SearchBox extends Component {
 
   constructor(props) {
       super(props);
-      this.setState({
+      this.state = {
         hint: 'Buscar visitante...'
-      });
+      };
       this._handleChange = this._handleChange.bind(this);
       this._handleKeyPress = this._handleKeyPress.bind(this);
       this.componentDidMount = this.componentDidMount.bind(this);

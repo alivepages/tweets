@@ -84552,9 +84552,9 @@ var SearchBox = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
-    _this.setState({
+    _this.state = {
       hint: 'Buscar visitante...'
-    });
+    };
     _this._handleChange = _this._handleChange.bind(_this);
     _this._handleKeyPress = _this._handleKeyPress.bind(_this);
     _this.componentDidMount = _this.componentDidMount.bind(_this);
