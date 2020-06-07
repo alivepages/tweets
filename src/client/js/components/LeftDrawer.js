@@ -54,7 +54,7 @@ const LeftDrawer = (props) => {
           Guest Control
         </div>
         <div style={styles.avatar.div}>
-          <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"
+          <Avatar src="https://www.material-ui.com/images/uxceo-128.jpg"
                   size={50}
                   style={styles.avatar.icon}/>
           <span style={styles.avatar.span}>{props.username}</span>
