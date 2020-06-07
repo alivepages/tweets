@@ -31372,7 +31372,8 @@ var FormPage = function (_Component) {
       if (err || !res.ok) {
         alert('Error al registrar visitante');
       } else {
-        alert('Se registró un nuevo visitante ');
+        alert('Se registró un nuevo visitante2 ');
+        window.location.href = '/';
       }
     });
   };

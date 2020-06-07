@@ -89,6 +89,7 @@ export default class FormPage extends Component {
           alert('Error al registrar visitante');
         } else {
           alert('Se registró un nuevo visitante ');
+          window.location.href='/';
         }
       });
   }
