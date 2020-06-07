@@ -8,12 +8,13 @@ import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
 import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
+//     { text: 'Usuarios', icon: <GridOn/>, link: '/users' },
+
 const data = {
   menus: [
     { text: 'Estadísticas', icon: <Assessment/>, link: '/stats' },
     { text: 'Visitantes', icon: <Web/>, link: '/visits' },
     { text: 'Últimas visitas', icon: <Web/>, link: '/all' },
-    { text: 'Usuarios', icon: <GridOn/>, link: '/users' },
     { text: 'Salir', icon: <PermIdentity/>, link: '/login' }
   ]
 };

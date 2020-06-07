@@ -12253,9 +12253,8 @@ var Header = function (_React$Component) {
               targetOrigin: { horizontal: 'right', vertical: 'top' },
               anchorOrigin: { horizontal: 'right', vertical: 'top' }
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { key: 1, primaryText: 'Estad\xEDsticas' }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { key: 2, primaryText: 'Visitantes' }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { key: 3, primaryText: 'Usuarios' })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { key: 1, primaryText: 'Estad\xEDsticas', href: '/stats' }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { key: 2, primaryText: 'Visitantes', href: '/visits' })
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_4_material_ui_IconMenu___default.a,
@@ -12268,7 +12267,7 @@ var Header = function (_React$Component) {
               targetOrigin: { horizontal: 'right', vertical: 'top' },
               anchorOrigin: { horizontal: 'right', vertical: 'top' }
             },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { primaryText: 'Salir', containerElement: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], { to: '/Acceso' }) })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5_material_ui_MenuItem___default.a, { primaryText: 'Salir', containerElement: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */], { to: '/login' }) })
           )
         )
       })
@@ -12591,8 +12590,10 @@ function withWidth() {
 
 
 
+//     { text: 'Usuarios', icon: <GridOn/>, link: '/users' },
+
 var data = {
-  menus: [{ text: 'Estadísticas', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_material_ui_svg_icons_action_assessment___default.a, null), link: '/stats' }, { text: 'Visitantes', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_svg_icons_av_web___default.a, null), link: '/visits' }, { text: 'Últimas visitas', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_svg_icons_av_web___default.a, null), link: '/all' }, { text: 'Usuarios', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_material_ui_svg_icons_image_grid_on___default.a, null), link: '/users' }, { text: 'Salir', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_svg_icons_action_perm_identity___default.a, null), link: '/login' }]
+  menus: [{ text: 'Estadísticas', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_material_ui_svg_icons_action_assessment___default.a, null), link: '/stats' }, { text: 'Visitantes', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_svg_icons_av_web___default.a, null), link: '/visits' }, { text: 'Últimas visitas', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_material_ui_svg_icons_av_web___default.a, null), link: '/all' }, { text: 'Salir', icon: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_svg_icons_action_perm_identity___default.a, null), link: '/login' }]
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (data);
@@ -31372,7 +31373,7 @@ var FormPage = function (_Component) {
       if (err || !res.ok) {
         alert('Error al registrar visitante');
       } else {
-        alert('Se registró un nuevo visitante2 ');
+        alert('Se registró un nuevo visitante ');
         window.location.href = '/';
       }
     });

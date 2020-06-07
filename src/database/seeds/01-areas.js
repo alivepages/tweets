@@ -3,7 +3,7 @@ const dataRows = [
     area: 'Recepción'
   },
   {
-    area: 'Ventas'
+    area: 'Ventas' 
   },
   {
     area: 'Producción'
