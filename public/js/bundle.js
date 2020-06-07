@@ -12380,7 +12380,7 @@ var LeftDrawer = function LeftDrawer(props) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { style: styles.avatar.div },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_material_ui_Avatar___default.a, { src: 'http://www.material-ui.com/images/uxceo-128.jpg',
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_material_ui_Avatar___default.a, { src: '/images/avatar.jpg',
         size: 50,
         style: styles.avatar.icon }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
