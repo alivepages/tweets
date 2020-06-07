@@ -1,8 +1,8 @@
 {
   "name": "guestcontrol",
-  "version": "10.16.3",
+  "version": "1.0.0",
   "engines": {
-    "node": "6.11.1"
+    "node": "10.16.3"
   },
   "description": "",
   "main": "server.js",
