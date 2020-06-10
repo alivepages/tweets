@@ -16,6 +16,13 @@ class Visit extends React.Component {
     };
   }
 
+  componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href='/login';
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.width !== nextProps.width) {
       this.setState({navDrawerOpen: nextProps.width === LARGE});

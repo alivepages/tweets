@@ -98,6 +98,13 @@ export default class FormPage extends Component {
     this.setState({ screenshot });
   }
 
+  componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href='/login';
+    }
+  }
+
   render() {
 
   const styles = {

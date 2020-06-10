@@ -16,6 +16,7 @@ class areasController extends controller {
   }
 
   static update (req, res) {
+    var inlog = localStorage.removeItem('gc_token');
     return super.update(Model, req, res)
   }
 

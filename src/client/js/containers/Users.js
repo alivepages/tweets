@@ -28,6 +28,13 @@ class Users extends React.Component {
     });
   }
 
+  componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href='/login';
+    }
+  }
+  
   render() {
     let { navDrawerOpen } = this.state;
     const paddingLeftDrawerOpen = 236;

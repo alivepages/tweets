@@ -35,6 +35,10 @@ class Visits extends React.Component {
   }
 
   componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href='/login';
+    }
     this._getData();
   }
 

@@ -13,6 +13,7 @@ import globalStyles from '../styles';
 import request from 'superagent';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
+
 class DashboardPage extends React.Component {
 
   constructor(props) {
@@ -21,6 +22,8 @@ class DashboardPage extends React.Component {
       stats: false
     };
   }
+
+
 
   _getData() {
     this.setState({
@@ -37,6 +40,10 @@ class DashboardPage extends React.Component {
   }
 
   componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href='/login';
+    }
     this._getData();
   }
 

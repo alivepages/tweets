@@ -31383,6 +31383,13 @@ var FormPage = function (_Component) {
     this.setState({ screenshot: screenshot });
   };
 
+  FormPage.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
+  };
+
   FormPage.prototype.render = function render() {
 
     var styles = {
@@ -71868,6 +71875,13 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_material_ui_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_material_ui_TextField__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_router_dom__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__theme_default__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_query_string__ = __webpack_require__(1012);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_query_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_query_string__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
@@ -71881,110 +71895,153 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 
-var LoginPage = function LoginPage() {
 
-  var styles = {
-    loginContainer: {
-      minWidth: 320,
-      maxWidth: 400,
-      height: 'auto',
-      position: 'absolute',
-      top: '20%',
-      left: 0,
-      right: 0,
-      margin: 'auto'
-    },
-    paper: {
-      padding: 20,
-      overflow: 'auto'
-    },
-    buttonsDiv: {
-      textAlign: 'center',
-      padding: 10
-    },
-    flatButton: {
-      color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
-    },
-    checkRemember: {
-      style: {
-        float: 'left',
-        maxWidth: 180,
-        paddingTop: 5
-      },
-      labelStyle: {
-        color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
-      },
-      iconStyle: {
-        color: 'red',
-        borderColor: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"],
-        fill: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
-      }
-    },
-    loginBtn: {
-      float: 'right'
-    },
-    btn: {
-      background: '#4f81e9',
-      color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["white"],
-      padding: 7,
-      borderRadius: 2,
-      margin: 2,
-      fontSize: 13
-    },
-    btnFacebook: {
-      background: '#4f81e9'
-    },
-    btnGoogle: {
-      background: '#e14441'
-    },
-    btnSpan: {
-      marginLeft: 5
+
+var LoginPage = function (_React$Component) {
+  _inherits(LoginPage, _React$Component);
+
+  function LoginPage(props) {
+    _classCallCheck(this, LoginPage);
+
+    var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+
+    _this._handleSubmit = _this._handleSubmit.bind(_this);
+    return _this;
+  }
+
+  LoginPage.prototype._handleSubmit = function _handleSubmit(event) {
+    event.preventDefault();
+    var username = this.refs['username'].input.value;
+    var password = this.refs['password'].input.value;
+    if (username == 'admin' && password == '041407036970') {
+      localStorage.setItem('gc_token', 'htdhdg');
+      window.location.href = '/';
+    } else {
+      alert('Acceso incorrecto');
+      this.refs['username'].input.value = '';
+      this.refs['password'].input.value = '';
     }
   };
 
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_1_material_ui_styles_MuiThemeProvider___default.a,
-    { muiTheme: __WEBPACK_IMPORTED_MODULE_11__theme_default__["a" /* default */] },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      null,
+  LoginPage.prototype.componentWillMount = function componentWillMount() {
+    var url = this.props.location.search;
+    var params = __WEBPACK_IMPORTED_MODULE_12_query_string___default.a.parse(url);
+    if (params.key == "c000ccf225950aac2a082a59ac5e57ff") {
+      localStorage.setItem('gc_token', 'htdhdg');
+      window.location.href = '/';
+    } else {
+      localStorage.removeItem('gc_token');
+    }
+  };
+
+  LoginPage.prototype.componentDidMount = function componentDidMount() {};
+
+  LoginPage.prototype.render = function render() {
+    var styles = {
+      loginContainer: {
+        minWidth: 320,
+        maxWidth: 400,
+        height: 'auto',
+        position: 'absolute',
+        top: '20%',
+        left: 0,
+        right: 0,
+        margin: 'auto'
+      },
+      paper: {
+        padding: 20,
+        overflow: 'auto'
+      },
+      buttonsDiv: {
+        textAlign: 'center',
+        padding: 10
+      },
+      flatButton: {
+        color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
+      },
+      checkRemember: {
+        style: {
+          float: 'left',
+          maxWidth: 180,
+          paddingTop: 5
+        },
+        labelStyle: {
+          color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
+        },
+        iconStyle: {
+          color: 'red',
+          borderColor: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"],
+          fill: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["grey500"]
+        }
+      },
+      loginBtn: {
+        float: 'right'
+      },
+      btn: {
+        background: '#4f81e9',
+        color: __WEBPACK_IMPORTED_MODULE_6_material_ui_styles_colors__["white"],
+        padding: 7,
+        borderRadius: 2,
+        margin: 2,
+        fontSize: 13
+      },
+      btnFacebook: {
+        background: '#4f81e9'
+      },
+      btnGoogle: {
+        background: '#e14441'
+      },
+      btnSpan: {
+        marginLeft: 5
+      }
+    };
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_1_material_ui_styles_MuiThemeProvider___default.a,
+      { muiTheme: __WEBPACK_IMPORTED_MODULE_11__theme_default__["a" /* default */] },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { style: styles.loginContainer },
+        null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_2_material_ui_Paper___default.a,
-          { style: styles.paper },
+          'div',
+          { style: styles.loginContainer },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'form',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9_material_ui_TextField___default.a, {
-              hintText: 'E-mail',
-              floatingLabelText: 'E-mail',
-              fullWidth: true
-            }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9_material_ui_TextField___default.a, {
-              hintText: 'Password',
-              floatingLabelText: 'Password',
-              fullWidth: true,
-              type: 'password'
-            }),
+            __WEBPACK_IMPORTED_MODULE_2_material_ui_Paper___default.a,
+            { style: styles.paper },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              null,
+              'form',
+              { onSubmit: this._handleSubmit },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9_material_ui_TextField___default.a, {
+                ref: 'username',
+                hintText: 'E-mail',
+                floatingLabelText: 'E-mail',
+                fullWidth: true
+              }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9_material_ui_TextField___default.a, {
+                ref: 'password',
+                hintText: 'Password',
+                floatingLabelText: 'Password',
+                fullWidth: true,
+                type: 'password'
+              }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_10_react_router_dom__["b" /* Link */],
-                { to: '/' },
+                'div',
+                null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_material_ui_RaisedButton___default.a, { label: 'Entrar',
                   primary: true,
+                  type: 'submit',
                   style: styles.loginBtn })
               )
             )
           )
         )
       )
-    )
-  );
-};
+    );
+  };
+
+  return LoginPage;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+;
 
 /* harmony default export */ __webpack_exports__["a"] = (LoginPage);
 
@@ -81052,6 +81109,10 @@ var Visits = function (_React$Component) {
   };
 
   Visits.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
     this._getData();
   };
 
@@ -87898,6 +87959,13 @@ var Visit = function (_React$Component) {
     return _this;
   }
 
+  Visit.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
+  };
+
   Visit.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
     if (this.props.width !== nextProps.width) {
       this.setState({ navDrawerOpen: nextProps.width === __WEBPACK_IMPORTED_MODULE_4_material_ui_utils_withWidth__["LARGE"] });
@@ -93451,6 +93519,13 @@ var Users = function (_React$Component) {
     });
   };
 
+  Users.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
+  };
+
   Users.prototype.render = function render() {
     var navDrawerOpen = this.state.navDrawerOpen;
 
@@ -93548,6 +93623,13 @@ var User = function (_React$Component) {
     });
   };
 
+  User.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
+  };
+
   User.prototype.render = function render() {
     var navDrawerOpen = this.state.navDrawerOpen;
 
@@ -93643,6 +93725,13 @@ var Stats = function (_React$Component) {
     this.setState({
       navDrawerOpen: !this.state.navDrawerOpen
     });
+  };
+
+  Stats.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
   };
 
   Stats.prototype.render = function render() {
@@ -93762,6 +93851,10 @@ var DashboardPage = function (_React$Component) {
   };
 
   DashboardPage.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
     this._getData();
   };
 
@@ -110100,6 +110193,10 @@ var Visits = function (_React$Component) {
   };
 
   Visits.prototype.componentWillMount = function componentWillMount() {
+    var inlog = localStorage.getItem('gc_token');
+    if (!inlog) {
+      window.location.href = '/login';
+    }
     this._getData();
   };
 
@@ -110164,6 +110261,231 @@ var Visits = function (_React$Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_5_material_ui_utils_withWidth___default()()(Visits));
+
+/***/ }),
+/* 1012 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var strictUriEncode = __webpack_require__(1013);
+var objectAssign = __webpack_require__(83);
+
+function encoderForArrayFormat(opts) {
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, index) {
+				return value === null ? [
+					encode(key, opts),
+					'[',
+					index,
+					']'
+				].join('') : [
+					encode(key, opts),
+					'[',
+					encode(index, opts),
+					']=',
+					encode(value, opts)
+				].join('');
+			};
+
+		case 'bracket':
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'[]=',
+					encode(value, opts)
+				].join('');
+			};
+
+		default:
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'=',
+					encode(value, opts)
+				].join('');
+			};
+	}
+}
+
+function parserForArrayFormat(opts) {
+	var result;
+
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, accumulator) {
+				result = /\[(\d*)\]$/.exec(key);
+
+				key = key.replace(/\[\d*\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = {};
+				}
+
+				accumulator[key][result[1]] = value;
+			};
+
+		case 'bracket':
+			return function (key, value, accumulator) {
+				result = /(\[\])$/.exec(key);
+				key = key.replace(/\[\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				} else if (accumulator[key] === undefined) {
+					accumulator[key] = [value];
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+
+		default:
+			return function (key, value, accumulator) {
+				if (accumulator[key] === undefined) {
+					accumulator[key] = value;
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+	}
+}
+
+function encode(value, opts) {
+	if (opts.encode) {
+		return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
+	}
+
+	return value;
+}
+
+function keysSorter(input) {
+	if (Array.isArray(input)) {
+		return input.sort();
+	} else if (typeof input === 'object') {
+		return keysSorter(Object.keys(input)).sort(function (a, b) {
+			return Number(a) - Number(b);
+		}).map(function (key) {
+			return input[key];
+		});
+	}
+
+	return input;
+}
+
+exports.extract = function (str) {
+	return str.split('?')[1] || '';
+};
+
+exports.parse = function (str, opts) {
+	opts = objectAssign({arrayFormat: 'none'}, opts);
+
+	var formatter = parserForArrayFormat(opts);
+
+	// Create an object with no prototype
+	// https://github.com/sindresorhus/query-string/issues/47
+	var ret = Object.create(null);
+
+	if (typeof str !== 'string') {
+		return ret;
+	}
+
+	str = str.trim().replace(/^(\?|#|&)/, '');
+
+	if (!str) {
+		return ret;
+	}
+
+	str.split('&').forEach(function (param) {
+		var parts = param.replace(/\+/g, ' ').split('=');
+		// Firefox (pre 40) decodes `%3D` to `=`
+		// https://github.com/sindresorhus/query-string/pull/37
+		var key = parts.shift();
+		var val = parts.length > 0 ? parts.join('=') : undefined;
+
+		// missing `=` should be `null`:
+		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+		val = val === undefined ? null : decodeURIComponent(val);
+
+		formatter(decodeURIComponent(key), val, ret);
+	});
+
+	return Object.keys(ret).sort().reduce(function (result, key) {
+		var val = ret[key];
+		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(val);
+		} else {
+			result[key] = val;
+		}
+
+		return result;
+	}, Object.create(null));
+};
+
+exports.stringify = function (obj, opts) {
+	var defaults = {
+		encode: true,
+		strict: true,
+		arrayFormat: 'none'
+	};
+
+	opts = objectAssign(defaults, opts);
+
+	var formatter = encoderForArrayFormat(opts);
+
+	return obj ? Object.keys(obj).sort().map(function (key) {
+		var val = obj[key];
+
+		if (val === undefined) {
+			return '';
+		}
+
+		if (val === null) {
+			return encode(key, opts);
+		}
+
+		if (Array.isArray(val)) {
+			var result = [];
+
+			val.slice().forEach(function (val2) {
+				if (val2 === undefined) {
+					return;
+				}
+
+				result.push(formatter(key, val2, result.length));
+			});
+
+			return result.join('&');
+		}
+
+		return encode(key, opts) + '=' + encode(val, opts);
+	}).filter(function (x) {
+		return x.length > 0;
+	}).join('&') : '';
+};
+
+
+/***/ }),
+/* 1013 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function (str) {
+	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+		return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+	});
+};
+
 
 /***/ })
 /******/ ]);
