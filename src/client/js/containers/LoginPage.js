@@ -124,7 +124,7 @@ class LoginPage extends React.Component {
                 <TextField
                   ref = "password"
                   hintText="Password"
-                  floatingLabelText="Password"
+                  floatingLabelText="Password2"
                   fullWidth={true}
                   type="password"
                 />
@@ -132,7 +132,7 @@ class LoginPage extends React.Component {
                 <div>
 
 
-                    <RaisedButton label="Entrar"
+                    <RaisedButton label="Entrar ya!"
                                   primary={true}
                                   type="submit"
                                   style={styles.loginBtn}/>
