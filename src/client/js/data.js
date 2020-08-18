@@ -13,8 +13,9 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 const data = {
   menus: [
     { text: 'Estadísticas', icon: <Assessment/>, link: '/stats' },
-    { text: 'Visitantes', icon: <Web/>, link: '/visits' },
-    { text: 'Últimas visitas', icon: <Web/>, link: '/all' },
+    { text: 'Keys', icon: <Web/>, link: '/keys' },
+    { text: 'Tweets', icon: <Web/>, link: '/visits' },
+    { text: 'Personas', icon: <Web/>, link: '/all' },
     { text: 'Salir', icon: <PermIdentity/>, link: '/login' }
   ]
 };

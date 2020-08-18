@@ -86,7 +86,7 @@ class Visits extends React.Component {
                         username="Admin"/>
 
             <div style={styles.container}>
-              <TablePage title="Visitantes" guests={guests} searchKey={this.state.searchKey}/>
+              <TablePage title="Tweets" guests={guests} searchKey={this.state.searchKey}/>
             </div>
         </div>
       </MuiThemeProvider>

@@ -26,7 +26,7 @@ const MonthlySales = (props) => {
 
   return (
     <Paper style={styles.paper}>
-      <div style={styles.header}>Visitas al mes</div>
+      <div style={styles.header}>Falsos tweets al mes</div>
       <div style={styles.div}>
         <ResponsiveContainer>
           <BarChart data={props.data} >

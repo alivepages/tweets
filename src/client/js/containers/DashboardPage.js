@@ -83,7 +83,7 @@ class DashboardPage extends React.Component {
             <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
               <InfoBox Icon={ThumbUp}
                        color={pink600}
-                       title="Total de Visitas"
+                       title="Total de Tweets"
                        value={stats.total}
               />
             </div>
@@ -92,7 +92,7 @@ class DashboardPage extends React.Component {
             <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
               <InfoBox Icon={this.icon(item.name)}
                        color={item.color}
-                       title={item.name}
+                       title="Total de bots"
                        value={item.value}
               />
             </div>

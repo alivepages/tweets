@@ -93,7 +93,7 @@ export default class FormPage extends Component {
   }
   return (
     <PageBase title="Nuevo visitante"
-              navigation="Inicio / Visitantes">
+              navigation="Inicio / Tweets">
       <form onSubmit={this._handleSubmit}>
 
       <Webcam/>

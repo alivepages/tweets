@@ -26,7 +26,7 @@ const NewOrders = (props) => {
 
   return (
     <Paper style={styles.paper}>
-      <div style={styles.header}>Visitas por hora</div>
+      <div style={styles.header}>Falsos tweets por hora</div>
       <div style={styles.div}>
         <ResponsiveContainer >
           <LineChart data={props.data}>

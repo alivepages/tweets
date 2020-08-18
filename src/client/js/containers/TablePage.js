@@ -51,11 +51,7 @@ const TablePage = (props) => {
               navigation={nav}>
 
       <div>
-        <Link to="/visit/0" >
-          <FloatingActionButton style={styles.floatingActionButton} backgroundColor={pink500}>
-            <ContentAdd />
-          </FloatingActionButton>
-        </Link>
+
 
         <Table>
           <TableHeader>
@@ -81,14 +77,7 @@ const TablePage = (props) => {
                 <TableRowColumn style={styles.columns.price}>{item.company}</TableRowColumn>
                 <TableRowColumn style={styles.columns.category}>{item.identifyNumber}</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
-                  <Link className="button" to="/visit/0">
-                    <FloatingActionButton zDepth={0}
-                                          mini={true}
-                                          backgroundColor={grey200}
-                                          iconStyle={styles.editButton}>
-                      <ContentCreate  />
-                    </FloatingActionButton>
-                  </Link>
+
                 </TableRowColumn>
               </TableRow>
             )}

@@ -51,7 +51,7 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Guest Control
+          Tweets
         </div>
         <div style={styles.avatar.div}>
           <Avatar src="/images/avatar.jpg"

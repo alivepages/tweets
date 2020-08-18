@@ -133,7 +133,7 @@ export default class FormPage extends Component {
   }
   return (
     <PageBase title="Nuevo visitante"
-              navigation="Inicio / Visitantes">
+              navigation="Inicio / Tweets">
       <form onSubmit={this._handleSubmit}>
       <div className="row">
       <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15 ">
