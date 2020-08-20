@@ -23,10 +23,11 @@ class Visits extends React.Component {
       guests: [],
       loading: true
     })
-    var URL = 'api/v1/guests';
+    var URL = 'api/v1/tweets';
     request
       .get(URL)
       .then(data => {
+        console.log(data);
         this.setState({
           guests: data.body,
           loading: false

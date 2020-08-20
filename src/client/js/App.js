@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import LoginPage from './containers/LoginPage';
 import Visits from './containers/Visits';
+import Tweets from './containers/Tweets';
 import Visit from './containers/Visit';
 import Users from './containers/Users';
 import User from './containers/User';
@@ -30,6 +31,7 @@ class App extends React.Component {
     return <div>
       <Switch>
         <Route path='/login' component={LoginPage}/>
+        <Route path='/tweets' component={Tweets}/>
         <Route path='/visits' component={Visits}/>
         <Route path='/visit/:id' component={Visit}/>
         <Route path='/all' component={All}/>

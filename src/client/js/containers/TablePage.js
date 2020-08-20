@@ -57,25 +57,26 @@ const TablePage = (props) => {
           <TableHeader>
             <TableRow style={{'fontSize':'18px'}}>
               <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.name}>Nombre</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.price}>Empresa</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.category}>Identficación</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.name}>Tweet</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.price}>Usuario</TableHeaderColumn>
+              <TableHeaderColumn style={styles.columns.category}>Fecha</TableHeaderColumn>
               <TableHeaderColumn style={styles.columns.edit}></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody>
             {props.guests
               .filter(item => {
-                var name = item.name.toLowerCase();
+                console.log(item);
+                var name = item.status.toLowerCase();
                 var key = props.searchKey.toLowerCase();
                 return (key == '' || name.indexOf(key) >= 0)
               })
               .map(item =>
               <TableRow key={item.id}>
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                <TableRowColumn style={styles.columns.name}>{item.name}</TableRowColumn>
-                <TableRowColumn style={styles.columns.price}>{item.company}</TableRowColumn>
-                <TableRowColumn style={styles.columns.category}>{item.identifyNumber}</TableRowColumn>
+                <TableRowColumn style={styles.columns.name}>{item.status}</TableRowColumn>
+                <TableRowColumn style={styles.columns.price}>{item.user}</TableRowColumn>
+                <TableRowColumn style={styles.columns.category}>{item.created_at}</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
 
                 </TableRowColumn>

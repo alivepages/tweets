@@ -3,6 +3,7 @@ const apiRouter = Router();
 const areasController = require('../controllers/areasController.js');
 const employesController = require('../controllers/employesController.js');
 const guestsController = require('../controllers/guestsController.js');
+const tweetsController = require('../controllers/tweetsController.js');
 const reasonsController = require('../controllers/reasonsController.js');
 const visitsController = require('../controllers/visitsController.js');
 const statsController = require('../controllers/statsController.js');
@@ -27,6 +28,13 @@ apiRouter
   .post('/guests', guestsController.create)
   .put('/guests/:id', guestsController.update)
   .delete('/guests/:id', guestsController.deleteById);
+
+apiRouter
+  .get('/tweets', tweetsController.getAll)
+  .get('/tweets/:id', tweetsController.getById)
+  .post('/tweets', tweetsController.create)
+  .put('/tweets/:id', tweetsController.update)
+  .delete('/tweets/:id', tweetsController.deleteById);
 
 apiRouter
   .get('/reasons', reasonsController.getAll)

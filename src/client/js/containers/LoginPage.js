@@ -23,7 +23,7 @@ class LoginPage extends React.Component {
     event.preventDefault();
     var username = this.refs['username'].input.value;
     var password = this.refs['password'].input.value;
-    if (username == 'admin' && password == '041407036970') {
+    if (username == 'thor' && password == 'Eln1n0d3ltr1c1cl0') {
       localStorage.setItem('gc_token','htdhdg');
       window.location.href = '/';
     } else {

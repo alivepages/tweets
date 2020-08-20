@@ -52,7 +52,7 @@ class Header extends React.Component {
                             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                   >
                     <MenuItem key={1} primaryText="Estadísticas" href="/stats"/>
-                    <MenuItem key={2} primaryText="Tweets" href="/visits"/>
+                    <MenuItem key={2} primaryText="Tweets" href="/tweets"/>
                   </IconMenu>
                   <IconMenu color={white}
                             iconButtonElement={

@@ -1,15 +1,19 @@
-const Model = require('../models/visits.js');
-const Guests = require('../models/guests.js');
+const Model = require('../models/tweets.js');
+//const Guests = require('../models/guests.js');
 const controller = require('./controller.js');
 
 class visitsController extends controller {
 
   static getAll (req, res) {
+    return super.getAll(Model, req, res)
+
+    /*
     Model
+
       .query()
       .orderBy('id','DESC')
-      .eager('guests')
       .then(data => res.json(data));
+      */
   }
 
   static getById (req, res) {
