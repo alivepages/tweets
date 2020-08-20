@@ -44,7 +44,7 @@ apiRouter
   .delete('/reasons/:id', reasonsController.deleteById);
 
 apiRouter
-  .get('/visits', visitsController.getAll)
+  .get('/visits', tweetsController.getAll)
   .get('/visits/:id', visitsController.getById)
   .post('/visits', visitsController.create)
   .put('/visits/:id', visitsController.update)
