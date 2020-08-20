@@ -17873,7 +17873,7 @@ var TablePage = function TablePage(props) {
           __WEBPACK_IMPORTED_MODULE_2_material_ui_Table__["TableBody"],
           null,
           props.guests.filter(function (item) {
-            console.log(item);
+            //console.log(item);
             var name = item.status.toLowerCase();
             var key = props.searchKey.toLowerCase();
             return key == '' || name.indexOf(key) >= 0;
@@ -17899,7 +17899,7 @@ var TablePage = function TablePage(props) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_2_material_ui_Table__["TableRowColumn"],
                 { style: styles.columns.category },
-                item.created_at
+                new Date(item.created_at).toLocaleString()
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_material_ui_Table__["TableRowColumn"], { style: styles.columns.edit })
             );

@@ -66,7 +66,7 @@ const TablePage = (props) => {
           <TableBody>
             {props.guests
               .filter(item => {
-                console.log(item);
+                //console.log(item);
                 var name = item.status.toLowerCase();
                 var key = props.searchKey.toLowerCase();
                 return (key == '' || name.indexOf(key) >= 0)
@@ -76,9 +76,8 @@ const TablePage = (props) => {
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
                 <TableRowColumn style={styles.columns.name}>{item.status}</TableRowColumn>
                 <TableRowColumn style={styles.columns.price}>{item.user}</TableRowColumn>
-                <TableRowColumn style={styles.columns.category}>{item.created_at}</TableRowColumn>
+                <TableRowColumn style={styles.columns.category}>{new Date(item.created_at).toLocaleString() }</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
-
                 </TableRowColumn>
               </TableRow>
             )}
