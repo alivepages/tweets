@@ -45,10 +45,10 @@ apiRouter
 
 apiRouter
   .get('/visits', tweetsController.getAll)
-  .get('/visits/:id', visitsController.getById)
-  .post('/visits', visitsController.create)
-  .put('/visits/:id', visitsController.update)
-  .delete('/visits/:id', visitsController.deleteById);
+  .get('/visits/:id', tweetsController.getById)
+  .post('/visits', tweetsController.create)
+  .put('/visits/:id', tweetsController.update)
+  .delete('/visits/:id', tweetsController.deleteById);
 
   apiRouter
     .get('/stats', statsController.stats);
