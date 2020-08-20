@@ -6,8 +6,11 @@ import ContentCreate from 'material-ui/svg-icons/content/create';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
+var strip_tags = require("strip_tags");
 
 const TablePage = (props) => {
+
+  
 
   const styles = {
     floatingActionButton: {
@@ -74,7 +77,7 @@ const TablePage = (props) => {
               .map(item =>
               <TableRow key={item.id}>
                 <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                <TableRowColumn style={styles.columns.name}>{item.status}</TableRowColumn>
+                <TableRowColumn style={styles.columns.name}>{strip_tags(item.status)}</TableRowColumn>
                 <TableRowColumn style={styles.columns.price}>{item.user}</TableRowColumn>
                 <TableRowColumn style={styles.columns.category}>{new Date(item.created_at).toLocaleString() }</TableRowColumn>
                 <TableRowColumn style={styles.columns.edit}>
