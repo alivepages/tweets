@@ -109471,7 +109471,7 @@ var BrowserUsage = function BrowserUsage(props) {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'span',
       { style: __WEBPACK_IMPORTED_MODULE_6__styles__["a" /* default */].title },
-      'Porsentaje'
+      'Porcentaje '
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { style: __WEBPACK_IMPORTED_MODULE_6__styles__["a" /* default */].clear }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
