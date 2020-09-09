@@ -5,6 +5,7 @@ class Controller {
       .query()
       .orderBy('id','DESC')
       .limit(100)
+      .distinct()
       .then(data => res.json(data));
   }
 
