@@ -4,7 +4,7 @@ const devConfig = {
     host: 'localhost',
     port: '3306',
     user: 'tweets',
-    password: 'az3i36qz7zvn9s0m',
+    password: 'ygjAY2cy4fe@QQZ',
     database: 'tweets'
   },
   migrations: {
