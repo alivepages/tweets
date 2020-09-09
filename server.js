@@ -9,7 +9,7 @@ const apiRouter = require('./src/routes/apiRouter.js');
 const connectToDb = require('./src/database/dbConnect.js');
 const dbConfigObj = require('./knexfile.js');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 const app = express();
 //const appDb = connectToDb(dbConfigObj.development);
 

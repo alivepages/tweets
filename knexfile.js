@@ -18,7 +18,8 @@ const devConfig = {
 const prodConfig = Object.assign(
   {},
   devConfig,
-  { host: '192.237.240.116', database: 'floreria_visitas', user: 'floreria_visitas', password: 'Visitas+32', }
+  { host: 'localhost', database: 'tweets', user: 'tweets', password: 'ygjAY2cy4fe@QQZ', }
+  
 )
 
 module.exports = {
