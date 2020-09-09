@@ -4,7 +4,7 @@ class Controller {
     Model
       .query()
       .orderBy('id','DESC')
-      .limit(10)
+      .limit(100)
       .then(data => res.json(data));
   }
 
