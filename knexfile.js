@@ -1,11 +1,11 @@
 const devConfig = {
   client: 'mysql',
   connection: {
-    host: 'ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    host: 'localhost',
     port: '3306',
-    user: 's2xw6kbstuk8a5qv',
+    user: 'tweets',
     password: 'az3i36qz7zvn9s0m',
-    database: 'yg190wx9dmlnqr19'
+    database: 'tweets'
   },
   migrations: {
     directory: './src/database/migrations'
@@ -19,7 +19,7 @@ const prodConfig = Object.assign(
   {},
   devConfig,
   { host: 'localhost', database: 'tweets', user: 'tweets', password: 'ygjAY2cy4fe@QQZ', }
-  
+
 )
 
 module.exports = {
