@@ -37,6 +37,7 @@
     "passport-local": "1.0.0",
     "pg": "^7.4.0",
     "random-string": "^0.2.0",
+    "rc-easyui": "^1.1.28",
     "react": "16.1.0",
     "react-dom": "16.1.0",
     "react-materialize": "^1.1.0",

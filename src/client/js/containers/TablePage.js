@@ -55,38 +55,18 @@ const TablePage = (props) => {
 
       <div>
 
-
-        <Table>
-          <TableHeader>
-            <TableRow style={{'fontSize':'18px'}}>
-              <TableHeaderColumn style={styles.columns.id}>ID</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.name}>Tweet</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.price}>Usuario</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.category}>Fecha</TableHeaderColumn>
-              <TableHeaderColumn style={styles.columns.edit}></TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {props.guests
-              .filter(item => {
-                //console.log(item);
-                var name = item.status.toLowerCase();
-                var key = props.searchKey.toLowerCase();
-                return (key == '' || name.indexOf(key) >= 0)
-              })
-              .map(item =>
-              <TableRow key={item.id}>
-                <TableRowColumn style={styles.columns.id}>{item.id}</TableRowColumn>
-                <TableRowColumn style={styles.columns.name}>{strip_tags(item.status)}</TableRowColumn>
-                <TableRowColumn style={styles.columns.price}>{item.user}</TableRowColumn>
-                <TableRowColumn style={styles.columns.category}>{new Date(item.created_at).toLocaleString() }</TableRowColumn>
-                <TableRowColumn style={styles.columns.edit}>
-                </TableRowColumn>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+      <table id="dg" title="DataGrid" style="width:700px;height:250px">
+        <thead>
+            <tr>
+                <th data-options="field:'itemid',width:80">Item ID</th>
+                <th data-options="field:'productid',width:100">Product</th>
+                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                <th data-options="field:'attr1',width:250">Attribute</th>
+            </tr>
+        </thead>
+    </table>      
+    </div>
     </PageBase>
   );
 };
