@@ -7,6 +7,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 var strip_tags = require("strip_tags");
+import { DataGrid, GridColumn, NumberBox, ComboBox } from 'rc-easyui';
 
 const TablePage = (props) => {
 
@@ -53,20 +54,14 @@ const TablePage = (props) => {
     <PageBase title={props.title}
               navigation={nav}>
 
-      <div>
-
-      <table id="dg" title="DataGrid" style="width:700px;height:250px">
-        <thead>
-            <tr>
-                <th data-options="field:'itemid',width:80">Item ID</th>
-                <th data-options="field:'productid',width:100">Product</th>
-                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-                <th data-options="field:'attr1',width:250">Attribute</th>
-            </tr>
-        </thead>
-    </table>      
-    </div>
+    <div>
+      
+      <DataGrid filterable data={props.data} style={{ /*height: 750*/ }}>
+        <GridColumn field="status" title="Tweet" width="70%"></GridColumn>
+        <GridColumn field="user" title="Usuario" />
+        <GridColumn field="created_at" title="Fecha" />
+      </DataGrid>
+        </div>
     </PageBase>
   );
 };

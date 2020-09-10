@@ -57,3 +57,7 @@ a:hover {
   border-radius: 20%;
   margin-top: 8px;
 }
+
+.datagrid-cell{
+  margin: 18px;
+}
