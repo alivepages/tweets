@@ -8,7 +8,7 @@ import {pink500, grey200, grey500} from 'material-ui/styles/colors';
 import PageBase from '../components/PageBase';
 var strip_tags = require("strip_tags");
 import { DataGrid, GridColumn, NumberBox, ComboBox } from 'rc-easyui';
-
+import moment from 'moment';
 
 class TablePage extends React.Component {
 
@@ -78,7 +78,11 @@ render() {
         <GridColumn expander width="30px"></GridColumn>
         <GridColumn field="status" title="Tweet" width="70%"></GridColumn>
         <GridColumn field="user" title="Usuario" />
-        <GridColumn field="created_at" title="Fecha" />
+        <GridColumn field="created_at" title="Fecha" 
+                    render={({ row }) => (
+                        <div>{row.created_at ? moment(row.created_at).format('DD/MM/YY hh:mm') : ''}</div>
+                    )}
+        />
       </DataGrid>
         </div>
     </PageBase>
