@@ -9,9 +9,27 @@ import PageBase from '../components/PageBase';
 var strip_tags = require("strip_tags");
 import { DataGrid, GridColumn, NumberBox, ComboBox } from 'rc-easyui';
 
-const TablePage = (props) => {
 
-  
+class TablePage extends React.Component {
+
+  renderDetail({ row }) {
+    return (
+      <div className="item f-row">
+        <div className="f-column">
+          <div className="item-desp f-full">Id: {row.id}</div>
+          <div className="item-desp f-full">Tweet: {row.status}></div>
+          <div>....</div>
+          <div className="item-desp f-full">Screen Name: {row.screen_name}</div>
+          <div className="item-desp f-full">Reetweet Count: {row.retweet_count}</div>
+          <div className="item-desp f-full">Favorite Count: {row.favorite_count}</div>
+          <div className="item-desp f-full">Source: {row.source}</div>
+        </div>
+      </div>
+    )
+  }
+
+
+render() {
 
   const styles = {
     floatingActionButton: {
@@ -48,15 +66,16 @@ const TablePage = (props) => {
     }
   };
 
-  var nav = 'Inicio / ' + props.title;
+  var nav = 'Inicio / ' + this.props.title;
 
   return (
-    <PageBase title={props.title}
+    <PageBase title={this.props.title}
               navigation={nav}>
 
     <div>
       
-      <DataGrid filterable data={props.data} style={{ /*height: 750*/ }}>
+      <DataGrid filterable data={this.props.data} renderDetail={this.renderDetail}  style={{ /*height: 750*/ }}>
+        <GridColumn expander width="30px"></GridColumn>
         <GridColumn field="status" title="Tweet" width="70%"></GridColumn>
         <GridColumn field="user" title="Usuario" />
         <GridColumn field="created_at" title="Fecha" />
@@ -65,5 +84,6 @@ const TablePage = (props) => {
     </PageBase>
   );
 };
+}
 
 export default TablePage;

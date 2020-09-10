@@ -61,3 +61,7 @@ a:hover {
 .datagrid-cell{
   margin: 18px;
 }
+
+.datagrid-row-detail .f-column{
+  margin: 20px;
+}

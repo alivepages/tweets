@@ -4,6 +4,7 @@ class Controller {
     Model
       .query()
       .orderBy('id','DESC')
+      .limit(500)
       .then(data => res.json(data));
   }
 
