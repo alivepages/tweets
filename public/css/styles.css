@@ -65,3 +65,7 @@ a:hover {
 .datagrid-row-detail .f-column{
   margin: 20px;
 }
+
+.datagrid-row-detail .f-row{
+  background-color: beige;
+}
