@@ -52,23 +52,26 @@ class Tweets extends React.Component {
       data: [],
       loading: true
     })
-    const URL = '/api/v1/tweets';
+    const URL = 'https://api.rivaliq.com/v3/landscapes/147398/socialPosts?timePeriod=thisMonth&apiKey=3fe2ee1c-7f81-4dca-b80e-76d84746ad34';
+    //timePeriod=thisMonth&apiKey=3fe2ee1c-7f81-4dca-b80e-76d84746ad34';
     request
       .get(URL)
+      .set('Content-Type', 'application/json')
+      //.query({ 'timePeriod': 'thisMonth', 'apiKey': '3fe2ee1c-7f81-4dca-b80e-76d84746ad34' })
       .then(data => {
         this.setState({
           data: data.body,
           loading: false
-        });
-      }
-      )}
+        })
+        
+      })
+      .catch(error => console.log(error.message));
+    }
 
   render() {
 
     let { navDrawerOpen, data, loading } = this.state;
     const paddingLeftDrawerOpen = 236;
-
-    navDrawerOpen = true; //temp
 
     const styles = {
       header: {
